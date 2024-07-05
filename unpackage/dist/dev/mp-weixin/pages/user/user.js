@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -187,14 +187,23 @@ var _default = {
     switchTab: function switchTab(tab) {
       this.activeTab = tab;
     },
+    gotoFriend: function gotoFriend() {
+      uni.navigateTo({
+        url: '/pages/user/my/myfriend'
+      });
+    },
     gotoSettings: function gotoSettings() {
       // 处理设置按钮的点击事件
       console.log('设置按钮被点击');
       // 可以在这里添加跳转到设置页面的逻辑
+      uni.navigateTo({
+        url: '/pages/user/modify/main'
+      });
     }
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

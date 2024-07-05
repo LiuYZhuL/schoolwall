@@ -152,36 +152,49 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
-  data: function data() {
-    //data() 是一个用于定义组件数据的函数。该函数返回一个包含组件数据的对象。
-    return {
-      title: 'Hello'
-    };
-  },
-  onLoad: function onLoad() {//onLoad() 是在小程序框架中使用的生命周期函数
-  },
   methods: {
-    //methods 是用于定义组件方法的选项。
-    name: function name() {
-      uni.navigateTo({
-        url: '/pages/user/modify/name'
-      });
-    },
-    sex: function sex() {
-      uni.navigateTo({
-        url: '/pages/user/modify/sex'
-      });
-    },
-    school: function school() {
-      uni.navigateTo({
-        url: '/pages/user/modify/school'
-      });
-    },
-    autograph: function autograph() {
-      uni.navigateTo({
-        url: '/pages/user/modify/autograph'
-      });
+    navigateTo: function navigateTo(page) {
+      // 根据页面名称跳转到相应的页面
+      switch (page) {
+        case 'nickname':
+          uni.navigateTo({
+            url: '/pages/nickname/nickname'
+          });
+          break;
+        case 'group':
+          uni.navigateTo({
+            url: '/pages/user/my/mygroup'
+          });
+          break;
+        case 'birthdate':
+          uni.navigateTo({
+            url: '/pages/birthdate/birthdate'
+          });
+          break;
+        case 'signature':
+          uni.navigateTo({
+            url: '/pages/signature/signature'
+          });
+          break;
+      }
     }
   }
 };

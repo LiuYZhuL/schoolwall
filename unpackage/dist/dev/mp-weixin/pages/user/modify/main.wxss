@@ -1,6 +1,24 @@
 
-.button_1{
-	type:white;
-	text-align: left;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
 }
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.item-label {
+  font-size: 16px;
+  color: #333;
+}
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  tint-color: #ccc;  /* 根据需要调整箭头图标颜色 */
+}
+
 

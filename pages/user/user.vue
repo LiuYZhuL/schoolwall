@@ -6,12 +6,12 @@
     <view class="user-details">
       <text class="username">狐友171832770557309</text>
 
-      <view class="user-stats">
+      <view class="user-stats" @click="gotoFriend">
         <text class="stat">2 关注</text>
         <text class="stat">0 粉丝</text>
       </view>
     </view>
-    <!-- <button class="settings-button" @click="gotoSettings">设置</button> -->
+    <button class="settings-button" @click="gotoSettings">设置</button>
   </view>
 
   <!-- 动态和评论选项卡 -->
@@ -45,10 +45,18 @@
 	    switchTab(tab) {
 	      this.activeTab = tab;
 	    },
+		gotoFriend(){
+			uni.navigateTo({
+					url: '/pages/user/my/myfriend'
+				})
+		},
 	    gotoSettings() {
 	      // 处理设置按钮的点击事件
 	      console.log('设置按钮被点击');
 	      // 可以在这里添加跳转到设置页面的逻辑
+		  uni.navigateTo({
+		  		url: '/pages/user/modify/main'
+		  	})
 	    }
 	  }
 	};

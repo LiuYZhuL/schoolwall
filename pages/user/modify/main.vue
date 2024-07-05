@@ -1,54 +1,81 @@
 <template>
-	<view>
-		<button @click="name" class="button_1" >修改昵称</button>
-
+	<view class="profile-container">
+	  <view class="profile-item" @tap="navigateTo('nickname')">
+	    <text class="item-label">昵称</text>
+	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	  </view>
+	  <view class="profile-item" @tap="navigateTo('gender')">
+	    <text class="item-label">性别</text>
+	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	  </view>
+	  <view class="profile-item" @tap="navigateTo('group')">
+	    <text class="item-label">我的圈子</text>
+	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	  </view>
 	
-		
-		
+	  <view class="profile-item" @tap="navigateTo('birthdate')">
+	    <text class="item-label">出生年月</text>
+	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	  </view>
+	  <view class="profile-item" @tap="navigateTo('signature')">
+	    <text class="item-label">个性签名</text>
+	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	  </view>
 	</view>
+
 	
 </template>
 
 <script>
 	export default {
-		data() {//data() 是一个用于定义组件数据的函数。该函数返回一个包含组件数据的对象。
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {//onLoad() 是在小程序框架中使用的生命周期函数
-	
-		},
-		methods: {//methods 是用于定义组件方法的选项。
-	       name(){
-			   uni.navigateTo({
-			   	url:'/pages/user/modify/name'
-			   })
-		   },
-		   sex(){
-			   uni.navigateTo({
-			   	url:'/pages/user/modify/sex'
-			   })
-		   },
-		   school(){
-			   uni.navigateTo({
-			   	url:'/pages/user/modify/school'
-			   })
-		   },
-		   autograph(){
-			   uni.navigateTo({
-			   	url:'/pages/user/modify/autograph'
-			   })
-		   }
-		   
-		}
-	}
+	  methods: {
+	    navigateTo(page) {
+	      // 根据页面名称跳转到相应的页面
+	      switch(page) {
+	        case 'nickname':
+	          uni.navigateTo({ url: '/pages/nickname/nickname' });
+	          break;
+	        case 'group':
+	          uni.navigateTo({ url: '/pages/user/my/mygroup' });
+	          break;
+	        case 'birthdate':
+	          uni.navigateTo({ url: '/pages/birthdate/birthdate' });
+	          break;
+	        case 'signature':
+	          uni.navigateTo({ url: '/pages/signature/signature' });
+	          break;
+	      }
+	    }
+	  }
+	};
+
 	
 </script>
 
 <style>
-	.button_1{
-		type:white;
-		text-align: left;
-	}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.item-label {
+  font-size: 16px;
+  color: #333;
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  tint-color: #ccc;  /* 根据需要调整箭头图标颜色 */
+}
+
 </style>

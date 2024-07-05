@@ -209,6 +209,41 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
@@ -241,6 +276,16 @@ var _default = {
   },
 
   methods: {
+    gotoDp: function gotoDp() {
+      uni.navigateTo({
+        url: '/pages/details/uni-post'
+      });
+    },
+    gotoDg: function gotoDg() {
+      uni.navigateTo({
+        url: '/pages/details/group'
+      });
+    },
     trigger: function trigger(e) {
       // console.log(e)
       this.content[e.index].active = !e.item.active;
