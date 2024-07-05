@@ -1,12 +1,13 @@
 
-.container {
+.container {  
+  /* 样式 */
 }
-.search-bar {
-	
-	padding: 20px;
-  
-  	background-color: white;
-	 border-radius: 20px;
+.search-bar {  
+  padding: 20px;  
+  background-color: white;  
+  border-radius: 20px;
 }
-
+.post-list {  
+  /* 如果需要，可以为帖子列表添加样式 */
+}  
 

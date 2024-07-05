@@ -84,7 +84,7 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 115:
+/***/ 113:
 /*!************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/@babel/runtime/regenerator/index.js ***!
   \************************************************************************************************/
@@ -93,12 +93,12 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 116)();
+var runtime = __webpack_require__(/*! @babel/runtime/helpers/regeneratorRuntime */ 114)();
 module.exports = runtime;
 
 /***/ }),
 
-/***/ 116:
+/***/ 114:
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/regeneratorRuntime.js ***!
   \*******************************************************************/
@@ -420,7 +420,7 @@ module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.e
 
 /***/ }),
 
-/***/ 117:
+/***/ 115:
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
   \*****************************************************************/
@@ -592,12 +592,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 115));
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 113));
 var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ 178));
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ 5));
 var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ 18));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 117));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 115));
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ 179));
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ 180));
@@ -8567,9 +8567,9 @@ module.exports = _isNativeFunction, module.exports.__esModule = true, module.exp
 /***/ }),
 
 /***/ 184:
-/*!***********************************************************************!*\
-  !*** D:/uni-appP/new(11)/new/pages.json?{"type":"origin-pages-json"} ***!
-  \***********************************************************************/
+/*!******************************************************************!*\
+  !*** D:/Code/uniapp/new/pages.json?{"type":"origin-pages-json"} ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8589,7 +8589,7 @@ var _default = {
   }, {
     "path": "pages/list/list",
     "style": {
-      "navigationStyle": "custom"
+      "navigationBarTitleText": "首页"
     }
   }, {
     "path": "pages/Login/Login",
@@ -8599,7 +8599,7 @@ var _default = {
   }, {
     "path": "pages/user/user",
     "style": {
-      "navigationStyle": "custom"
+      "navigationBarTitleText": "我的"
     }
   }, {
     "path": "pages/user/modify/main",
@@ -8681,11 +8681,6 @@ var _default = {
       "selectedIconPath": "static/next/shouye-xianxing.png",
       "text": "首页"
     }, {
-      "pagePath": "pages/info/info",
-      "iconPath": "static/new/wode-xianxing.png",
-      "selectedIconPath": "static/next/wode-xianxing.png",
-      "text": "消息"
-    }, {
       "pagePath": "pages/user/user",
       "iconPath": "static/new/wode-xianxing.png",
       "selectedIconPath": "static/next/wode-xianxing.png",
@@ -8698,9 +8693,9 @@ exports.default = _default;
 /***/ }),
 
 /***/ 185:
-/*!**********************************************************!*\
-  !*** D:/uni-appP/new(11)/new/pages.json?{"type":"stat"} ***!
-  \**********************************************************/
+/*!*****************************************************!*\
+  !*** D:/Code/uniapp/new/pages.json?{"type":"stat"} ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11156,9 +11151,9 @@ module.exports = _iterableToArray, module.exports.__esModule = true, module.expo
 /***/ }),
 
 /***/ 207:
-/*!***********************************************************************************************!*\
-  !*** D:/uni-appP/new(11)/new/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
-  \***********************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** D:/Code/uniapp/new/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18338,9 +18333,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 26:
-/*!******************************************!*\
-  !*** D:/uni-appP/new(11)/new/pages.json ***!
-  \******************************************/
+/*!*************************************!*\
+  !*** D:/Code/uniapp/new/pages.json ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -18512,9 +18507,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 33:
-/*!****************************************!*\
-  !*** D:/uni-appP/new(11)/new/store.js ***!
-  \****************************************/
+/*!***********************************!*\
+  !*** D:/Code/uniapp/new/store.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19804,9 +19799,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 35:
-/*!********************************************************!*\
-  !*** D:/uni-appP/new(11)/new/uni.promisify.adaptor.js ***!
-  \********************************************************/
+/*!***************************************************!*\
+  !*** D:/Code/uniapp/new/uni.promisify.adaptor.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19828,9 +19823,9 @@ uni.addInterceptor({
 /***/ }),
 
 /***/ 36:
-/*!*****************************************************!*\
-  !*** D:/uni-appP/new(11)/new/static/css/global.css ***!
-  \*****************************************************/
+/*!************************************************!*\
+  !*** D:/Code/uniapp/new/static/css/global.css ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19885,107 +19880,6 @@ function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
 module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 67:
-/*!**********************************************!*\
-  !*** D:/uni-appP/new(11)/new/api/request.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-var _typeof = __webpack_require__(/*! @babel/runtime/helpers/typeof */ 13);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var api = _interopRequireWildcard(__webpack_require__(/*! ./api.js */ 68));
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-// API 封装
-
-function request() {
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-    _ref$url = _ref.url,
-    url = _ref$url === void 0 ? "" : _ref$url,
-    _ref$data = _ref.data,
-    data = _ref$data === void 0 ? {} : _ref$data,
-    _ref$method = _ref.method,
-    method = _ref$method === void 0 ? "POST" : _ref$method,
-    _ref$dataType = _ref.dataType,
-    dataType = _ref$dataType === void 0 ? "json" : _ref$dataType,
-    _ref$successCb = _ref.successCb,
-    successCb = _ref$successCb === void 0 ? null : _ref$successCb,
-    _ref$failCb = _ref.failCb,
-    failCb = _ref$failCb === void 0 ? null : _ref$failCb;
-  uni.request({
-    //请求路径
-    url: api.BASE_URL + url,
-    // 参数
-    data: data,
-    // 请求方式
-    method: method,
-    // 超时时间
-    timeout: 30000,
-    // 一般直接写dataType:‘json’，
-    dataType: dataType,
-    // 设置请求头 
-    header: {
-      token: uni.getStorageSync("token") || ""
-    },
-    success: function success(res) {
-      //  可以根据自己需求  根据 code 进行拦截
-      if (res.statusCode === 200 && res.data.code === 1) {
-        // 需要成功回调时才调用
-        successCb && successCb(res.data.data);
-      } else {
-        // 请求成功  业务失败
-        uni.showToast({
-          title: "请求失败",
-          icon: "none",
-          duration: 2000
-        });
-      }
-    },
-    // 请求失败
-    fail: function fail(err) {
-      uni.showToast({
-        title: "请求失败",
-        icon: "none",
-        duration: 2000
-      });
-      //   需要失败回调时才调用
-      failCb && failCb();
-    }
-  });
-}
-// 导出 request
-var _default = request;
-exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
-
-/***/ }),
-
-/***/ 68:
-/*!******************************************!*\
-  !*** D:/uni-appP/new(11)/new/api/api.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.BASE_URL = void 0;
-var BASE_URL = "http://127.0.0.1:4523/m1/4606688-4256385-default/op";
-exports.BASE_URL = BASE_URL;
 
 /***/ }),
 

@@ -1,73 +1,145 @@
-<template >
-  <view class="container">
-    <view class="search-bar">
-      <input type="text" v-model="query" placeholder="  请输入搜索关键词" @input="onSearch" />
-    </view>
-		<view class="post">
-			<uni-list-chat clickable="true" :avatar-circle="true"  :title="posts.circleName" :avatar="posts.circleAvatar" :note="posts.circleType" :time="posts.circleUpdateTime" @click="login()"></uni-list-chat>
-		</view>
-  </view>
-  
-</template>
+<template>
+	<view class="container">
+	  <view class="header">
+	    <image class="logo" src="path_to_logo_image" />
+	    <view class="info">
+	      <text class="title">武汉大学</text>
+	      <view class="stats">
+	        <text class="stat">5448动态</text>
+	        <text class="divider">|</text>
+	        <text class="stat">4167学子</text>
+	      </view>
+	    </view>
+	    <button class="join-button">加入</button>
+	  </view>
+	  <view class="announcement">
+	    <text>这里是站点表白墙公告，这里是站点表白墙公告，这里是</text>
+	  </view>
+	  <view class="categories">
+	    <view class="category">
+	      <view class="category-icon"></view>
+	      <text class="category-text">校园购物</text>
+	    </view>
+	    <view class="category">
+	      <view class="category-icon"></view>
+	      <text class="category-text">校园跑腿</text>
+	    </view>
+	    <view class="category">
+	      <view class="category-icon"></view>
+	      <text class="category-text">旅游</text>
+	    </view>
+	    <view class="category">
+	      <view class="category-icon"></view>
+	      <text class="category-text">出行</text>
+	    </view>
+	    <view class="category">
+	      <view class="category-icon"></view>
+	      <text class="category-text">美食</text>
+	    </view>
+	  </view>
+	</view>
 
-<script>
-export default {
+</template>
+<script>export default {
   data() {
     return {
-      query: '',
-     
-	  posts: [
-	  ],
-	
+      // 可以在这里添加数据绑定，如果有动态数据需求的话
     };
   },
-  computed: {
-
-  },
   methods: {
-	login(){	 
-	  		uni.switchTab({
-	  			url:'/pages/list/list'
-	  		})				  	
-	  },
-    onSearch() {
-		uni.request({  
-		  url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/1',  
-		  method: 'GET',  
-		  header: {  
-		    // 'content-type': 'application/json' // 通常 GET 请求不需要设置 content-type  
-		  },  
-		  success: (res) => {  
-		    console.log('整个响应：', res); // 打印整个响应以查看结构  
-		    if (res.statusCode === 200) {  
-		      let data = res.data.data; // 假设你的数据确实在 res.data.data 中  
-		      this.posts = data;  
-		      console.log('this.posts:', this.posts); // 打印 this.posts 以查看是否设置正确  
-		    } else {  
-		      console.error('响应错误：', res);  
-		    }  
-		  },  
-		  fail: (err) => {  
-		    console.error('网络请求失败：', err);  
-		  }  
-		});
-   
-    },
-  },
+    // 如果需要处理点击事件，可以在这里添加方法
+  }
 };
+
 </script>
 
-<style>
+<style>/* 通用样式 */
 .container {
-	
-
+  margin-top:100px ;
+  display: flex;
+  flex-direction: column;
+  background-image: url('./static/images/nong.png');
+  background-size: cover;
+  padding: 10px;
 }
-.search-bar {
-	
-	padding: 20px;
-    margin-bottom: 20px;
-  	background-color: white;
-	 border-radius: 20px;
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.info {
+  flex: 1;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.stat {
+  font-size: 14px;
+  color: #fff;
+}
+
+.divider {
+  margin: 0 5px;
+  color: #fff;
+}
+
+.join-button {
+  background-color: #FF4500;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.announcement {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.category-text {
+  font-size: 14px;
 }
 
 </style>

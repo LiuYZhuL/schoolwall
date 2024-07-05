@@ -1,380 +1,253 @@
 <template>
     <!-- Dynamic Content -->
-    <view class="content" >
+    <view class="content">
 		<!-- Posts -->
-		<view class="post">
+		<view class="post" v-for="post in posts" :key="post.id">
 			<view class="post-header">
 				<image class="post-avatar" :src="post.avatar" />
 				<view class="post-user-info">
 					<text class="post-username">{{ post.username }}</text>
-					<view>
-						<text class="post-time">{{ post.time }}</text>
-					</view>
+				<view>
+					<text class="post-time">{{ post.time }}</text>
 				</view>
-				<button class="follow-button" v-if="!post.followed" @click="followUser()">关注TA</button>
-				<button class="followed-button" v-else @click="unfollowUser()">已关注</button>
 			</view>
+			<button class="follow-button" v-if="!post.followed" @click="followUser(post)">关注TA</button>
+			<button class="followed-button" v-else @click="unfollowUser(post)">已关注</button>
+        </view>
 		
+		
+        <view class="post-content">
+			<text class="post-category">{{ post.category }}</text>
+			<text class="post-text">{{ post.text }}</text>
 			
-			<view class="post-content">
-				<view class="">
-					<text class="post-title">{{ post.postTitle }}</text>
-					<text class="post-category">{{ post.topicName }}</text>
-					
-				</view>
-				<text class="post-text">{{post.postContent}}</text>
-			</view>
-			<view class="post-images" v-if="post.postImgUrls.length">
-				<image class="post-image" v-for="image in post.postImgUrls" :key="image" :src="image" :class="image-item" mode="heightFix"/>
-			</view>
+        </view>
+		<view class="post-images" v-if="post.images.length">
+			<image class="post-image" v-for="image in post.images" :key="image" :src="image" :class="image-item" mode="heightFix"/>
+		</view>
 		
-			<view class="detail-bottom-icons" >
-				<!-- <view class="lilan" style="font-size: 12px;color:#666;padding-left: 0%;">
-					<text>6465浏览</text>
-				</view> -->
-				<!-- <view class="detail-bottom-icons-box">
-					<uni-icons class="to" type="undo" size="20" style="color: #666; " v-show="showT"
+		<view class="location" style="padding-left:20px;color:#666;">
+			<uni-icons type="location" size="20" style="color: #666; " v-show="showT"
+				@click="other(item)"></uni-icons>
+			<text>成都市高新区天府大道</text>
+		</view>
+		
+		
+	  	<view class="detail-bottom-icons">
+			<view class="lilan" style="font-size: 12px;color:#666;padding-left: 0%;">
+				<text>6465浏览</text>
+			</view>
+	  		<view class="detail-bottom-icons-box">
+				<uni-icons class="to" type="undo" size="20" style="color: #666; " v-show="showT"
 					@click="other(item)"></uni-icons>
-					<uni-icons class="to" type="undo-filled" size="20" style="color: #666; " v-show="!showT"
+				<uni-icons class="to" type="undo-filled" size="20" style="color: #666; " v-show="!showT"
 					@click="other(item)">
 						<text style="font-size: 12px;">895</text>
-					</uni-icons>
-				</view> -->
-				<view class="detail-bottom-icons-box">
-					<uni-icons type="chatbubble" size="20" style="color: #666;" @click="activateInput()">
-						<text style="font-size: 12px;">{{post.postCommentCount}}</text>
-					</uni-icons>
-				</view>
-				<view class="detail-bottom-icons-box">
-					<uni-icons type="heart" size="20" style="color: #666;" @click="postLike">
-						<text style="font-size: 12px;">{{post.postLikeCount}}</text>
-					</uni-icons>			       
-				</view>
+				</uni-icons>
+	  		</view>
+			<view class="detail-bottom-icons-box">
+				<uni-icons class="comment" type="chatbubble" size="20" style="color: #666;" v-show="showC"
+					@click="comment(item)">
+				</uni-icons>
+				<uni-icons class="comment" type="chatbubble-filled" size="20" style="color: #666;"
+					v-show="!showC" @click="comment(item)">
+					<text style="font-size: 12px;">895</text>
+				</uni-icons>
 			</view>
-		
-		
-			<view class="" style="padding: 20rpx; background-color: whitesmoke; margin-top: 20rpx;">
-				<text>精彩评论（{{post.postCommentCount}}）</text>
+			<view class="detail-bottom-icons-box">
+				<uni-icons class="like" type="heart" size="20" style="color: #666;" v-show="showL"
+					@click="like(item)">	
+				</uni-icons>
+				<uni-icons class="like" type="heart-filled" size="20" style="color: #666;" v-show="!showL"
+					@click="like(item)">
+			<text style="font-size: 12px;">895</text>
+				</uni-icons>				       
 			</view>
+	  	</view>
 		
-			<view >
-				<view v-for="(chatI, index) in chat":key="index" style="border-top: 1rpx solid black;">
-					<view class="post-header" style="padding: 20rpx;">
-						<image class="post-avatar" :src="chatI.avatar" />
-						<view class="post-user-info">
-							<view class="post-username">{{ chatI.name }}</view>
-							<view class="post-time">{{ chatI.time }}</view>
-						</view>
-						<view class="detail-bottom-icons-box">
-							<uni-icons class="like" type="heart" size="20" style="color: #ff0000;" >
-								<text style="font-size: 12px;">1</text>
-							</uni-icons>		
-						</view>
+		
+		<view class="" style="padding: 20rpx; background-color: whitesmoke; margin-top: 20rpx;">
+			<text>精彩评论（{{post.likes}}）</text>
+		</view>
+		
+		<view>
+			<view v-for="(chatI, index) in chat":key="index" style="border-top: 1rpx solid black;">
+				<view class="post-header" style="padding: 20rpx;">
+					<image class="post-avatar" :src="chatI.avatar" />
+					<view class="post-user-info">
+						<view class="post-username">{{ chatI.name }}</view>
+						<view class="post-time">{{ chatI.time }}</view>
 					</view>
-					<view class="" style="margin: 10px; margin-left: 40px;" >
-						<view style="padding: 10rpx;" @click="activateInput(chatI.commentId)">	
-							<text v-if="chatI.type == 'text'" style="padding: 10rpx;">{{chatI.message}}</text>
-							<image :src="chatI.message" v-if="chatI.type == 'image'" style="max-width: 450rpx; padding: 10rpx;" mode="widthFix"></image>
-						</view>
-						<view style="text-align: right; padding: 10rpx;">
-							<uni-icons v-if="chatI.userId === id" type="trash" size='20' @click="del(chatI.commentId)"></uni-icons>
-						</view>
-						<view v-for="(chatJ,i) in chatI.chats" :key="i" style="border-radius: 10rpx; background-color: whitesmoke;">
-							<view class="post-header" style="padding: 20rpx;">
-								<image class="post-avatar" :src="chatJ.avatar" />
-								<view class="post-user-info">
-									<view class="post-username">{{ chatJ.name }}</view>
-									<view class="post-time">{{ chatJ.time }}</view>
-								</view>
-							</view>
-							<view style="padding: 10rpx;" @click="activateInput(chatI.commentId)">
-								<text v-if="chatI.type == 'text'" style="padding: 10rpx;">{{chatI.message}}</text>
-								<image :src="chatI.message" v-if="chatI.type == 'image'" style="max-width: 450rpx; padding: 10rpx;" mode="widthFix"></image>
-							</view>
-							<view style="text-align: right; padding: 10rpx;">
-								<uni-icons v-if="chatI.userId === id" type="trash" size='20' @click="del(chatI.commentId)"></uni-icons>
-							</view>
-						</view>
+					<view class="detail-bottom-icons-box">
+						<uni-icons class="like" type="heart" size="20" style="color: #666;" v-show="showL"
+						@click="like(item)"></uni-icons>
+						<uni-icons class="like" type="heart-filled" size="20" style="color: #666;" v-show="!showL"
+						@click="like(item)">
+						<text style="font-size: 12px;">?</text>
+						</uni-icons>				       
 					</view>
 				</view>
+				<view style="padding: 10rpx;">	
+					<text v-if="chatI.type == 'text'" style="padding: 10rpx;">{{chatI.message}}</text>
+					<image :src="chatI.message" v-if="chatI.type == 'image'" style="max-width: 450rpx; padding: 10rpx;" mode="widthFix"></image>
+				</view>
+			</view>
+			<view class="chatFrame">
+				<textarea type="text" v-model="content" class="chatInput" placeholder="请输入内容" @confirm="submit"></textarea>
+				<button class="btn" @click="chooseImage">图片</button>
+				<button class="btn" @click="submit">发送</button>
 			</view>
 		</view>
-		<view class="chatFrame" v-if="isInputActive">
-			<textarea type="text" v-model="content" class="chatInput" placeholder="请输入内容" @focus="handleFocus" @blur="handleBlur"  @confirm="submit"></textarea>
-			<uni-icons type="image" size="25" style="padding: 5rpx;" @click="chooseImage"></uni-icons>
-			<uni-icons type="chat" size='25' style="padding: 5rpx;" @click="submit"></uni-icons>
-		</view>
+		
     </view>
 	
+	
+	
+    </view>	  
 </template>
 
 <script>
 export default {
-	onShow() {
+  onShow() {
 		uni.request({
-			url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/admin/post/'+this.postId,//用的查询自己帖子
-			method: 'GET',
-			header: {
-				'authentication': 'application'
-			},				  
-			success: res => {
-				if (res.statusCode === 200 ) {
-	            const data = res.data.data;
-				console.log('Total:', data.total);
-				this.total=data.total;
-				const records = data;
-				this.popd=records;
-				// records.forEach(record => {
-				// 	this.popd[0].username=record.circleName;
-				// 	this.popd[0].name=record.circleName;
-				// 	this.popd[0].join=record.circleType;
-				// 	this.popd[0].likes='热度：'+record.circlePostCount;
-				// 	});
-				} else {
-					console.error('Error in response:', res);
-				}
-			    console.log(res.data)
-			},
-			fail: err => {
-			    console.log(err)
-			}
+		  url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post',//用的查询自己帖子，后续得换
+		  method: 'GET',
+		  header: {
+		    'authentication': 'application'
+		  },				  
+		  success: res => {
+							 if (res.statusCode === 200 ) {
+							             const data = res.data.data;
+							             console.log('Total:', data.total);
+										this.total=data.total;
+							             const records = data;
+										 this.popd=records;
+							     //         records.forEach(record => {
+											 // this.popd[0].username=record.circleName;
+											 // this.popd[0].name=record.circleName;
+											 // this.popd[0].join=record.circleType;
+											 // this.popd[0].likes='热度：'+record.circlePostCount;
+							     //         });
+							         } else {
+							         console.error('Error in response:', res);
+							         }
+		    console.log(res.data)
+		  },
+		  fail: err => {
+		    console.log(err)
+		  }
 		})
-			
-	},
-	onLoad(options) {
-		this.postId = options.postId;
-		console.log(options)
-	},
-	data() {
-	    return {
-			isPost: false,
-			cmtCtId:null,
-			id: 1,
-			content:"", //输入框的文本
-			isInputActive: false,  // 输入框是否激活
-			postId:null, 
-			chat: [{
-				userId: 1, 
-				commentId: 1,
-				avatar: '/static/images/1.jpg',
-				name:"mc", 
-				time:"xx:xx", 
-				message:"#%￥&@~", 
-				type:"text",
-				chats:[{
-					replyCommentId: 1,
-					secReplyId: 2,
-					avatar: '/static/images/1.jpg',
-					name:"mc", 
-					time:"xx:xx", 
-					replyContent: "#%￥&@~",
-					type:"text",
-				}]
-			}],
-	  
-			post: {
-				userId: 1,
-				postId: 1,
-				groupId: 1,
-				avatar: '/static/2.jpg',
-				username: '晓依依Cors',
-				time: '2小时前',
-				followed: false,
-				postTitle: '日常投稿',
-				topicName: '#考试不挂科',
-				postContent: '考试啦~不准挂科！不准挂科！不准挂科！重要的是一定要说三遍！！！',
-				postImgUrls: [
-					'/static/images/1.jpg',
-					'/static/images/2.jpg',
-					'/static/images/3.jpg',
-				],
-				location: '',
-				postCommentCount: 895,
-				postLikeCount: 862,
-	        },
-	    };
-	},
-	methods: {
-		activateInput(cmtCtId) {
-			this.isPost = false;
-			this.cmtCtId = cmtCtId;
-			console.log(cmtCtId);
-		    this.isInputActive = true;  // 激活输入框
-		},
-		handleFocus() {
-			this.isInputActive = true;  // 当输入框获得焦点时，保持激活状态
-	    },
-	    handleBlur() {
-			if (this.content == '') {
-		        this.isInputActive = false;  // 当输入框失去焦点且没有输入时，隐藏输入框
-		    }
-		},
-	    followUser() {
-			this.post.followed = true; // 更新为已关注
-			uni.request({
-				url:'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/follow/'+this.post.userId,
-				method: 'POST',
-				header: {
-				    'Content-Type': 'application/json'
-				},
-				success: (res) => {
-				    console.log(res.data);
-				},
-				fail: (err) => {
-				    console.error(err);
-				}
-			})
-	    },
-	    unfollowUser() {
-			this.post.followed = false; // 更新为未关注
-			uni.request({
-			    url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/follow/' + this.post.userId, // 注意：你可能需要提供完整的 URL
-			    method: 'DELETE',
-			    header: {
-
-			    },
-			    success: function (res) {
-			        console.log(res.data);
-			    },
-			    fail: function (err) {
-			        console.error(err);
-			    }
-			});
-	    },
 		
-		chooseImage() {
-			uni.chooseImage({
-				success: (img) => {
-	
-				}
-			});
-		},
-		submit(){
-			if(this.content === ''){
-				return uni.showToast({
-					title: "评论不能为空",
-					icon:'none'
-				})
-			}  
-			if(this.isPost){
-				uni.request({
-				    url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post/commentTopic', // 注意：这里的 URL 需要是完整的 URL，包括协议和域名
-				    method: 'POST',
-				    header: {
-				        'Content-Type': 'application/json'
-				    },
-					data: JSON.stringify({
-						"postId": this.postId,
-						"commentContent": this.content
-					}),
-				    success: (res) => {
-				        console.log(res.data);
-				    },
-				    fail: (err) => {
-				        console.error(err);
-				    }
-				});
-			}else {
-				uni.request({
-				    url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/replyPostComment', // 注意：这里的 URL 需要是完整的 URL，包括协议和域名
-				    method: 'POST',
-				    header: {
-				        'Content-Type': 'application/json'
-				    },
-					data: JSON.stringify({
-						"replyCommentId": 1,
-						"secReplyId": this.cmtCtId,
-						"postId": this.postId,
-						"replyContent": this.content
-					}),
-				    success: (res) => {
-				        console.log(res.data);
-				    },
-				    fail: (err) => {
-				        console.error(err);
-				    }
-				});
-			}
-			this.isPost = false;
-			this.cmtCtId = null;
-			this.content = '';
-			this.isInputActive = false; 
-		},
-		postLike(){
-			uni.request({
-			    url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post/like?postId='+this.postId, // 注意：这里的 URL 需要是完整的 URL，包括协议和域名
-			    method: 'POST',
-			    header: {
-					'content-type': 'application/json'
-			    },
-			    success: (res) => {
-			        console.log(res.data);
-			    },
-			    fail: (err) => {
-			        console.error(err);
-			    }
-			});
-		},
-		chatLike(){
-			uni.request({
-			    url: '', // 注意：这里的 URL 需要是完整的 URL，包括协议和域名
-			    method: 'POST',
-			    header: {
-					'content-type': 'application/json'
-			    },
-			    success: (res) => {
-			        console.log(res.data);
-			    },
-			    fail: (err) => {
-			        console.error(err);
-			    }
-			});
-		},
-		del(postCommentId) {
-			// 模拟弹窗
-			uni.showModal({
-				title: '是否删除？',
-				success: function(res) {
-					if (res.confirm) {
-						console.log('用户点击确定')
-						uni.request({
-						    url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post/commentTopic?postCommentId='+postCommentId, // 注意：这里的 URL 需要是完整的 URL，包括协议和域名
-						    method: 'DELETE',
-						    header: {
-								
-						    },
-						    success: (res) => {
-						        console.log(res.data);
-						    },
-						    fail: (err) => {
-						        console.error(err);
-						    }
-						});
-					} else if (res.cancel) {
-						console.log('用户点击取消')
-					}
-				}
-			})
-		},
+	},
+  data() {
+    return {
+		//输入框的文本
+		content:"",
+		//评论列表
+		chat: [{uid: 3, 
+		avatar: '/static/images/1.jpg',
+		name:"mc", 
+		time:"xx:xx", 
+		message:"#%￥&@~", 
+		type:"text"}],
+  
+      posts: [
+        {
+          id: 1,
+          avatar: '/static/images/1.jpg',
+          username: '峰潇潇Sorcererer',
+          time: '2小时前',
+          followed: false,
+          category: '失物招领',
+          text: '雅思口语全套出售了，欢迎咨询',
+          images: [
+            '/static/images/1.jpg',
+            '/static/images/2.jpg',
+            '/static/images/3.jpg',
+          ],
+          location: '',
+          views: 6465,
+          shares: 9665,
+          comments: 895,
+          likes: 862,
+        },
+      ],
+	  title: 'uni-fab',
+	  directionStr: '垂直',
+	  horizontal: 'right',
+	  vertical: 'bottom',
+	  direction: 'horizontal',  
+	  pattern: {
+	  	color: '#7A7E83',
+	  	backgroundColor: '#fff',
+	  	selectedColor: '#007AFF',
+	  	buttonColor: '#007AFF',
+	  	iconColor: '#fff'
 	  },
+	  is_color_type: false,
 	  
-	};
+    };
+  },
+  methods: {
+    followUser(post) {
+      post.followed = true; // 更新为已关注
+    },
+    unfollowUser(post) {
+      post.followed = false; // 更新为未关注
+    },
+	chooseImage() {
+		uni.chooseImage({
+			success: (img) => {
+				let obj = {
+					uid:1,
+					avatar: "/static/logo.png",
+					name:"aaaaaa", 
+					time:"xx-xx",
+					message:img.tempFilePaths,
+					type:"image",
+				}
+				this.chat.push(obj);
+				
+			}
+		});
+	},
+	submit(){
+		if(this.content === ''){
+			return uni.showToast({
+				title: "消息不能为空",
+				icon:'none'
+			})
+		}  
+		let obj = {
+			avatar: "/static/logo.png",
+			name:"aaaaaa", 
+			time:"xx-xx",
+			message:this.content,
+			type:"text",
+		}
+		
+		this.chat.push(obj);
+		this.content = '';
+	},
+  },
+  
+};
 </script>
 
 <style scoped>
 .content {
+	flex: 1;
 	background-color: #f9f9f9;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;  
-	
+	height: 100%;
 }
 
 .post {
 	background-color: white;
 	border-radius: 5px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	padding-bottom: 90rpx;
+	overflow-y: scroll;
+	display: block;
+	box-sizing: border-box;
+	height: 90%;
 }
 
 .post-header {
@@ -426,10 +299,7 @@ export default {
 	font-size: 12px;
 	margin-bottom: 5px;
 }
-.post-title {
-	font-size: 12px;
-	font-style: normal;
-}
+
 .post-text {
 	font-size: 12px;
 	margin-bottom: 10px;
@@ -457,9 +327,9 @@ export default {
 	 margin-left: 10px;
  }
  .detail-bottom-icons-box{
-	 
+	 position: relative;
 	 display: flex;
-	align-items: right;
+	align-items: center;
 	justify-content: center;
 	width: 44px;
 	margin-left: 50px;	
@@ -490,12 +360,13 @@ export default {
 	max-height: 100rpx;
 }
 .chatFrame{
-	width: 100%;
-	height: 70rpx;
+	height: 80rpx;
 	padding: 10rpx;
 	padding-bottom: 20px;
 	position: fixed;
+	right: 0; 
 	bottom: 0;
+	left: 0; 
 	z-index: 1030;
 	display: flex;
 	align-items: center;
@@ -510,5 +381,14 @@ export default {
 	border-radius: 20rpx;
 	flex: 1;
 	background-color: white;
+}
+.btn{
+	font-size: 18rpx;
+	width: 100rpx;
+	height: 70rpx;
+	border-radius: 5rpx;
+	background-color: brown;
+	text-align: center;
+	line-height: 70rpx;
 }
 </style>

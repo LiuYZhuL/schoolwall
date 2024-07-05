@@ -1,205 +1,172 @@
 <template>
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="user-info">
+    <image class="avatar" src="/static/images/1.jpg" />
+    <view class="user-details">
+      <text class="username">狐友171832770557309</text>
 
-	<view class="container">
-			<view style="height: 60px;background-color:#F46B42;"></view>
-	  <view class="header">
-	    <view class="user-info">
-	      <image class="avatar" src="/static/2.jpg" />
-	      <view class="user-details">
-	        <text class="username">{{ppp}}</text>
-	        <text class="userid">{{qqq}}</text>
-	      </view>
-	    </view>
-	    <view class="stats" @click="tofriend()">
-	     
-	      <view class="stat-item"v-for="(item,index) in myData":key="index">
-	        <text class="stat-value">{{item.num}}</text>
-	        <text class="stat-label">{{item.name}}</text>
-	      </view>
-		  
-		  
-	     
-	    </view>
-		
-	  </view>
-	<view>
+      <view class="user-stats">
+        <text class="stat">2 关注</text>
+        <text class="stat">0 粉丝</text>
+      </view>
+    </view>
+    <!-- <button class="settings-button" @click="gotoSettings">设置</button> -->
+  </view>
+
+  <!-- 动态和评论选项卡 -->
+  <view class="tabs">
+    <text :class="['tab', { active: activeTab === '动态' }]" @click="switchTab('动态')">动态</text>
+    <text :class="['tab', { active: activeTab === '评论' }]" @click="switchTab('评论')">评论</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content" v-if="activeTab === '动态'">
+    <text class="no-content">暂未发布动态</text>
+  </view>
+  <view class="content" v-if="activeTab === '评论'">
+    <text class="no-content">暂未发布评论</text>
+  </view>
+
+  <!-- 底部导航 -->
+</view>
 
 
-	<view class="profile-container">
-	 
-	  <view class="profile-item" @tap="navigateTo('gender')">
-	    <text class="item-label">我的圈子</text>
-	    <image class="arrow-icon"  />
-	  </view>
-	  <view class="profile-item" @tap="navigateTo('birthdate')">
-	    <text class="item-label">我的动态</text>
-	    <image class="arrow-icon"  />
-	  </view>
-	  <view class="profile-item" @tap="navigateTo('signature')">
-	    <text class="item-label">修改个人信息</text>
-	    <image class="arrow-icon" />
-		
-		</view>
-		<view class="profile-item" @tap="navigateTo('nickname')">
-		  <text class="item-label">退出</text>
-		  <image class="arrow-icon"  />
-	  </view>
-	</view>
-
-	
-		
-		
-	</view>
-	  </view>
-	
 </template>
 
 <script>
-	import request from "../../api/request";
-	import * as api from "../../api/api";
 	export default {
-	
-		data() {//data() 是一个用于定义组件数据的函数。该函数返回一个包含组件数据的对象。
-			return {
-				ppp:'小明',
-				qqq:'aasds',
-				myData:[{
-					name:"关注",
-					num:5
-				},{
-					name:"粉丝",
-					num:13
-				}
-				]
-			}
-		},
-		onShow(){
-			this.ppp=uni.usernameop,
-			this.qqq=uni.myautograph
-		},
-		onLoad() {//onLoad() 是在小程序框架中使用的生命周期函数
-	
-	
-		},
-		computed:{
-			
-		},
-		methods: {
-			tofriend(){
-				  uni.navigateTo({ url: '/pages/user/my/myfriend' });
-			},
-			navigateTo(page) {
-			      // 根据页面名称跳转到相应的页面
-			      switch(page) {
-			        case 'nickname':
-			          uni.navigateTo({ url: '/pages/index/index' });
-			          break;
-			        case 'gender':
-			          uni.navigateTo({ url: '/pages/user/my/mygroup' });
-			          break;
-			        case 'birthdate':
-			          uni.navigateTo({ url: '/pages/user/my/myannounce' });
-			          break;
-			        case 'signature':
-			          uni.navigateTo({ url: '/pages/user/modify/name' });
-			          break;
-			      }
-			    }
-		   
-		}
-	}
+	  data() {
+	    return {
+	      activeTab: '动态'
+	    };
+	  },
+	  methods: {
+	    switchTab(tab) {
+	      this.activeTab = tab;
+	    },
+	    gotoSettings() {
+	      // 处理设置按钮的点击事件
+	      console.log('设置按钮被点击');
+	      // 可以在这里添加跳转到设置页面的逻辑
+	    }
+	  }
+	};
+
 	
 </script>
 
-<style>
-	.profile-container {
-	  display: flex;
-	  flex-direction: column;
-	  background-color: #ffffff;
-	}
-	
-	.profile-item {
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  padding: 15px 10px;
-	  border-bottom: 1px solid #eaeaea;
-	}
-	
-	.item-label {
-	  font-size: 16px;
-	  color: #333;
-	}
-	
-	.arrow-icon {
-	  width: 16px;
-	  height: 16px;
-	  tint-color: #ccc;  /* 根据需要调整箭头图标颜色 */
-	}
-	
-.button_1{
-		type:white;
-		text-align: left;
-	}
-	
-.container {
+<style>.container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   height: 100%;
-  background-color: #f5f5f5;
-}
-
-.header {
-
-  background-color:#F46B42;
-  padding: 20px;
-  color: white;
+  background-color: #f7f7f7;
 }
 
 .user-info {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  background-color: #3b3b3b;
 }
 
 .avatar {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  margin-right: 10px;
+  border-radius: 30px;
 }
 
 .user-details {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  margin-left: 10px;
 }
 
 .username {
-  font-size: 20px;
-  font-weight: bold;
+  color: #fff;
+  font-size: 18px;
 }
 
-.userid {
+.user-status {
+  color: #ccc;
   font-size: 14px;
 }
 
-.stats {
+.user-stats {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 5px;
 }
 
-.stat-item {
+.stat {
+  color: #fff;
+  margin-right: 15px;
+}
+
+.settings-button {
+  background-color: #5a5a5a;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fff;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom: 2px solid #ffcc00;
+}
+
+.content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.stat-value {
-  font-size: 18px;
-  font-weight: bold;
+.placeholder {
+  width: 80px;
+  height: 80px;
 }
 
-.stat-label {
-  font-size: 14px;
+.no-content {
+  color: #999;
+  margin-top: 10px;
 }
+
+.bottom-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  color: #999;
+}
+
+.nav-item.active {
+  color: #ffcc00;
+}
+
 </style>
