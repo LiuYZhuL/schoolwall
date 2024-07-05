@@ -1,0 +1,170 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	
+		{
+			"path": "pages/index/index",
+			"style": {
+			"navigationBarTitleText": "表白墙"
+			}
+		},
+		{
+			"path": "pages/list/list",
+			"style": {
+				 "navigationStyle": "custom"  
+			}
+		},
+		{
+			"path" : "pages/Login/Login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录"
+			}
+		},
+		{
+			"path" : "pages/user/user",
+			"style" : 
+			{
+				  "navigationStyle": "custom"  
+			}
+		},
+		{
+			"path" : "pages/user/modify/main",
+			"style" : 
+			{
+				"navigationBarTitleText" : "修改信息"
+			}
+		},
+		{
+			"path" : "pages/user/modify/name",
+			"style" : 
+			{
+				"navigationBarTitleText" : "修改昵称"
+			}
+		},
+		{
+			"path" : "pages/details/uni-post",
+			"style" : 
+			{
+				"navigationBarTitleText" : "帖子详情"
+			}
+		},
+		{
+			"path" : "pages/details/user",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人中心"
+			}
+		},
+		{
+			"path" : "pages/details/group",
+			"style" : 
+			{
+				"navigationBarTitleText" : "圈子详情"
+			}
+		},
+		{
+			"path" : "pages/announce/mypost",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的发帖"
+			}
+		},
+		
+		{
+			"path" : "pages/user/my/mygroup",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的圈子"
+			}
+		},
+		
+		
+		{
+			"path" : "pages/user/my/myannounce",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的动态"
+			}
+		},
+		
+		
+		{
+			"path" : "pages/search/search",
+			"style" : 
+			{
+				"navigationBarTitleText" : "搜索"
+			}
+		},	{
+			"path" : "pages/user/my/myfriend",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的好友"
+			}
+		},
+		{
+			"path" : "pages/search/usese",
+			"style" : 
+			{
+				"navigationBarTitleText" : "消息"
+			}
+		},
+		{
+			"path" : "pages/info/info",
+			"style" : 
+			{
+				"navigationBarTitleText" : "消息"
+			}
+		},
+		{
+			"path" : "pages/info/talk",
+			"style" : 
+			{
+				"navigationBarTitleText" : "聊天"
+			}
+		}
+		
+			
+		
+		
+		
+		
+		
+		
+		
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "校园表白墙",
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundColor": "#ffffff"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"list": [{
+			"pagePath": "pages/list/list",
+			"iconPath": "static/new/shouye-xianxing.png",
+			"selectedIconPath": "static/next/shouye-xianxing.png",
+			"text": "首页"
+			
+		},
+		{
+			"pagePath": "pages/info/info",
+			"iconPath": "static/new/wode-xianxing.png",
+			"selectedIconPath": "static/next/wode-xianxing.png",
+			"text": "消息"
+			
+		},
+		{
+			"pagePath": "pages/user/user",
+			"iconPath": "static/new/wode-xianxing.png",
+			"selectedIconPath": "static/next/wode-xianxing.png",
+			"text": "我的"
+			
+		}
+			
+		]
+	}
+	
+	
+}
