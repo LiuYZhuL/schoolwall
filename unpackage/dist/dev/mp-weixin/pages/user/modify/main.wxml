@@ -1,0 +1,1 @@
+<view><button data-event-opts="{{[['tap',[['name',['$event']]]]]}}" class="button_1" bindtap="__e">修改昵称</button></view>

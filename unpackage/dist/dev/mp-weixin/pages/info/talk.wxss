@@ -1,0 +1,65 @@
+
+.chatFrame{
+	height: 80rpx;
+	padding: 10rpx;
+	padding-bottom: 20px;
+	position: fixed;
+	right: 0; 
+	bottom: 0;
+	left: 0; 
+	z-index: 1030;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid beige;
+	background-color: whitesmoke;
+}
+.chatInput{
+	justify-items: auto;
+	border: 1px solid whitesmoke;
+	height: 70rpx;
+	margin-right: 20rpx;
+	border-radius: 20rpx;
+	flex: 1;
+	background-color: white;
+}
+.btn{
+	font-size: 24rpx;
+	width: 100rpx;
+	height: 70rpx;
+	border-radius: 5rpx;
+	background-color: brown;
+	text-align: center;
+	line-height: 70rpx;
+}
+.avatar{
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 100%;
+}
+.chatTime{
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+	text-align: center;
+	justify-content: center;
+	font-size: 22rpx;
+	color: lightgrey;
+}
+.chat{
+	display: flex;
+	align-self: start;
+	margin-bottom: 20rpx;
+	padding: 20rpx;
+	/* flex-direction: row-reverse;  对方说话值为'',自己为row-reverse*/
+}
+.chatContent{
+	background-color: whitesmoke;
+	padding: 20rpx;
+	border-radius: 5rpx;
+	margin: 20rpx;
+	max-width: 450rpx;
+}
+.chatContent text{
+	word-break: break-all;
+}
+
+

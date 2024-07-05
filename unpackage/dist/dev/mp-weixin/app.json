@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/Login/Login",
+    "pages/user/user",
+    "pages/user/modify/main",
+    "pages/user/modify/name",
+    "pages/details/uni-post",
+    "pages/details/user",
+    "pages/details/group",
+    "pages/announce/mypost",
+    "pages/user/my/mygroup",
+    "pages/user/my/myannounce",
+    "pages/search/search",
+    "pages/user/my/myfriend",
+    "pages/search/usese",
+    "pages/info/info",
+    "pages/info/talk"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "校园表白墙",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "iconPath": "static/new/shouye-xianxing.png",
+        "selectedIconPath": "static/next/shouye-xianxing.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "iconPath": "static/new/wode-xianxing.png",
+        "selectedIconPath": "static/next/wode-xianxing.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "static/new/wode-xianxing.png",
+        "selectedIconPath": "static/next/wode-xianxing.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

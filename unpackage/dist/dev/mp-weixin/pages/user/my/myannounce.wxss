@@ -1,0 +1,22 @@
+
+.lineEllipsis {
+	font-size: 20px;
+	margin-left: 5px;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	/* 超出两行自动加省略号 */
+	overflow: hidden;
+}
+.time{
+	margin-top: 8px;
+}
+.warp {
+	padding: 10px;
+}
+.button {
+	margin-bottom: 10px;
+}
+

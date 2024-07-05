@@ -1,0 +1,96 @@
+
+.input-field {
+	  -webkit-user-select: none;
+	          user-select: none;
+}
+.container {
+  padding: 16px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+}
+.back-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.header-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+.profile-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 16px;
+}
+.profile-info {
+  flex: 1;
+}
+.profile-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.profile-stats {
+  color: #999;
+  margin-top: 4px;
+}
+.follow-button {
+  background: #e6e6ff;
+  color: #6666ff;
+  padding: 8px 16px;
+  border-radius: 16px;
+  margin-top: 8px;
+  text-align: center;
+}
+.description-section {
+  margin-top: 16px;
+}
+.description-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.description-content {
+  color: #666;
+  margin-top: 4px;
+}
+.users-section {
+  margin-top: 16px;
+}
+.users-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.user-avatars {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+.all-users {
+  color: #6666ff;
+  cursor: pointer;
+}
+.join-circle-button {
+  width: 100%;
+  padding: 12px;
+  background: #6666ff;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+

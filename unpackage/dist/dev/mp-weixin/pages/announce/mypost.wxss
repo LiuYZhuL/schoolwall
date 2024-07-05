@@ -1,0 +1,10 @@
+
+.input-container{
+		fond-size:30px;
+		color:black;
+}
+.image-container{
+		fond-size:30px;
+		 color:black;
+}
+

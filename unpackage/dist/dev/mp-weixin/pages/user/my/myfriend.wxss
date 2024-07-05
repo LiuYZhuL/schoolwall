@@ -1,0 +1,141 @@
+
+.container {
+  padding: 16px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+}
+.back-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+.header-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+}
+.tab {
+  padding: 10px;
+  cursor: pointer;
+}
+.active {
+  color: red;
+  border-bottom: 2px solid red;
+}
+.content {
+  padding: 16px 0;
+}
+.user {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+.user-info {
+  flex: 1;
+}
+.user-name {
+  font-size: 16px;
+}
+.user-time {
+  color: #999;
+  margin-top: 4px;
+}
+.follow-button {
+  background: #ff6b81;
+  color: #fff;
+  padding: 2px 2px;
+  border-radius: 16px;
+}
+.circle {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #ccc;
+}
+.circle-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+.circle-info {
+  flex: 1;
+}
+.circle-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.circle-stats {
+  color: #999;
+  margin-top: 4px;
+}
+.circle-description {
+  color: #666;
+  margin-top: 4px;
+}
+.ad-section {
+  margin-top: 16px;
+  border-top: 1px solid #ccc;
+}
+.ad-image {
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+}
+.ad-address {
+  color: #999;
+  margin-top: 4px;
+}
+.ad-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.ad-views {
+  color: #999;
+}
+.ad-actions {
+  display: flex;
+}
+.ad-action {
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+.ad-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+}
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+}
+.edit-button, .delete-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.edit-button {
+  background: #f0ad4e;
+  color: #fff;
+}
+.delete-button {
+  background: #d9534f;
+  color: #fff;
+}
+

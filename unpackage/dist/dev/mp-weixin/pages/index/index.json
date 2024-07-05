@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "表白墙",
+  "usingComponents": {
+    "uni-list-chat": "/uni_modules/uni-list/components/uni-list-chat/uni-list-chat",
+    "uni-fab": "/uni_modules/uni-fab/components/uni-fab/uni-fab"
+  }
+}
