@@ -1,8 +1,9 @@
 <template>
 	<view>
-		<view class="post" v-for="post in posts" :key="post.id">
-			<uni-list-chat clickable="true" :avatar-circle="true" :title="post.circleName" :avatar="post.circleAvatar"
-				:note="post.circleType" :time="post.circleUpdateTime" @click="login()"></uni-list-chat>
+		<view class="post" v-for="(post, index) in posts" :key="post.id">  
+		    <uni-list-chat clickable="true" :avatar-circle="true" :title="post.circleName" :avatar="post.circleAvatar"  
+		                    :note="post.circleType" :time="post.circleUpdateTime" @click="login(index)">  
+		    </uni-list-chat>  
 		</view>
 		<view class="container">
 			<uni-fab ref="fab" :pattern="pattern" :content="content" :horizontal="horizontal" :vertical="vertical"
@@ -79,7 +80,7 @@
 					})
 				}
 			},
-			login() {
+			login(index) {
 				// let tokk = uni.tokk;
 				// if (tokk != 1) {
 				// 	uni.navigateTo({
@@ -91,9 +92,12 @@
 				// 	})
 
 				// }
+				this.$popg.sharedData=this.posts[index];
+				console.log(this.$popg.sharedData); // 输出：初始值
 					uni.switchTab({
 						url: '/pages/list/list'
 					})
+				
 
 			},
 			search() {

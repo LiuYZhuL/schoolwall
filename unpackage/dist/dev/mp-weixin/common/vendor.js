@@ -8567,9 +8567,9 @@ module.exports = _isNativeFunction, module.exports.__esModule = true, module.exp
 /***/ }),
 
 /***/ 184:
-/*!******************************************************************!*\
-  !*** D:/Code/uniapp/new/pages.json?{"type":"origin-pages-json"} ***!
-  \******************************************************************/
+/*!********************************************************************!*\
+  !*** D:/Github/schoolwall/pages.json?{"type":"origin-pages-json"} ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8693,9 +8693,9 @@ exports.default = _default;
 /***/ }),
 
 /***/ 185:
-/*!*****************************************************!*\
-  !*** D:/Code/uniapp/new/pages.json?{"type":"stat"} ***!
-  \*****************************************************/
+/*!*******************************************************!*\
+  !*** D:/Github/schoolwall/pages.json?{"type":"stat"} ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11151,9 +11151,9 @@ module.exports = _iterableToArray, module.exports.__esModule = true, module.expo
 /***/ }),
 
 /***/ 207:
-/*!******************************************************************************************!*\
-  !*** D:/Code/uniapp/new/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
-  \******************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** D:/Github/schoolwall/uni_modules/uni-icons/components/uni-icons/uniicons_file_vue.js ***!
+  \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18333,9 +18333,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 26:
-/*!*************************************!*\
-  !*** D:/Code/uniapp/new/pages.json ***!
-  \*************************************/
+/*!***************************************!*\
+  !*** D:/Github/schoolwall/pages.json ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -18507,9 +18507,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 33:
-/*!***********************************!*\
-  !*** D:/Code/uniapp/new/store.js ***!
-  \***********************************/
+/*!*************************************!*\
+  !*** D:/Github/schoolwall/store.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19799,9 +19799,9 @@ module.exports = index_cjs;
 /***/ }),
 
 /***/ 35:
-/*!***************************************************!*\
-  !*** D:/Code/uniapp/new/uni.promisify.adaptor.js ***!
-  \***************************************************/
+/*!*****************************************************!*\
+  !*** D:/Github/schoolwall/uni.promisify.adaptor.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19823,9 +19823,9 @@ uni.addInterceptor({
 /***/ }),
 
 /***/ 36:
-/*!************************************************!*\
-  !*** D:/Code/uniapp/new/static/css/global.css ***!
-  \************************************************/
+/*!**************************************************!*\
+  !*** D:/Github/schoolwall/static/css/global.css ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

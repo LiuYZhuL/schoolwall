@@ -4,11 +4,11 @@
   <view class="user-info">
     <image class="avatar" src="/static/images/1.jpg" />
     <view class="user-details">
-      <text class="username">狐友171832770557309</text>
+      <text class="username">{{posts.userName}}</text>
 
-      <view class="user-stats" @click="gotoFriend">
-        <text class="stat">2 关注</text>
-        <text class="stat">0 粉丝</text>
+      <view class="user-stats" >
+        <text class="stat">{{posts.userRegisterTime}}</text>
+       
       </view>
     </view>
     <button class="settings-button" @click="gotoSettings">设置</button>
@@ -37,19 +37,42 @@
 <script>
 	export default {
 	  data() {
+		  
 	    return {
+			posts:[],
 	      activeTab: '动态'
 	    };
 	  },
 	  methods: {
+		  onShow() {
+		  	uni.request({
+		  		url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/admin/user/info/1',
+		  		method: 'GET',
+		  		header: {
+		  			'content-type': 'application/json'
+		  		},
+		  		success: res => {
+		  			var that = this;
+		  			if (res.statusCode === 200) {
+		  
+		  				const data = res.data.data;
+		  				const records = data;
+		  				that.posts = records;
+		  
+		  			} else {
+		  				console.error('Error in response:', res);
+		  			}
+		  			console.log(res.data)
+		  		},
+		  		fail: err => {
+		  			console.log(err)
+		  		}
+		  	})
+		  },
 	    switchTab(tab) {
 	      this.activeTab = tab;
 	    },
-		gotoFriend(){
-			uni.navigateTo({
-					url: '/pages/user/my/myfriend'
-				})
-		},
+	
 	    gotoSettings() {
 	      // 处理设置按钮的点击事件
 	      console.log('设置按钮被点击');

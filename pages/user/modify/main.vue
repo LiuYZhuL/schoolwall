@@ -2,24 +2,28 @@
 	<view class="profile-container">
 	  <view class="profile-item" @tap="navigateTo('nickname')">
 	    <text class="item-label">昵称</text>
-	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
 	  </view>
 	  <view class="profile-item" @tap="navigateTo('gender')">
 	    <text class="item-label">性别</text>
-	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
 	  </view>
 	  <view class="profile-item" @tap="navigateTo('group')">
 	    <text class="item-label">我的圈子</text>
-	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
 	  </view>
 	
 	  <view class="profile-item" @tap="navigateTo('birthdate')">
 	    <text class="item-label">出生年月</text>
-	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
 	  </view>
 	  <view class="profile-item" @tap="navigateTo('signature')">
 	    <text class="item-label">个性签名</text>
-	    <image class="arrow-icon" src="path_to_arrow_icon" />
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
+	  </view>
+	  <view class="profile-item" @tap="navigateTo('friend')">
+	    <text class="item-label">我的好友</text>
+	    <image class="arrow-icon" src="/static/annImg/ArrowRight.png" />
 	  </view>
 	</view>
 
@@ -44,6 +48,10 @@
 	        case 'signature':
 	          uni.navigateTo({ url: '/pages/signature/signature' });
 	          break;
+			case 'friend':
+			uni.navigateTo({ url: '/pages/user/my/myfriend' });
+			break;
+			
 	      }
 	    }
 	  }

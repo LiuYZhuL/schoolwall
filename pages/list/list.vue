@@ -1,19 +1,19 @@
 <template>
 	<view class="container">
 		<view class="header">
-			<image class="logo" src="/static/images/1.jpg" />
+			<image class="logo" :src="posts.circleAvatar" />
 			<view class="info">
-				<text class="title">武汉大学</text>
+				<text class="title">{{posts.circleName}}</text>
 				<view class="stats">
-					<text class="stat">5448动态</text>
+					<text class="stat">{{posts.circlePostCount+'动态'}}</text>
 					<text class="divider">|</text>
-					<text class="stat">4167学子</text>
+					<text class="stat">{{posts.circleUserCount+'学子'}}</text>
 				</view>
 			</view>
 			<button @click="gotoDg" class="join-button">加入</button>
 		</view>
 		<view class="announcement">
-			<text>这里是站点表白墙公告，这里是站点表白墙公告，这里是</text>
+			<text>{{posts.circleDescription}}</text>
 		</view>
 		<view class="categories">
 			<view class="category">
@@ -82,6 +82,7 @@
 	export default {
 		data() {
 			return {
+				posts:this.$popg.sharedData, 
 
 				total: '20',
 				title: 'uni-fab',
@@ -121,6 +122,7 @@
 				uni.navigateTo({
 					url: '/pages/details/group'
 				})
+				// console.log(this.posts);
 			},
 			trigger(e) {
 				// console.log(e)

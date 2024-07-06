@@ -2,7 +2,7 @@
   <view class="container">
  
     <view class="profile-section">
-      <image src="/static/2.jpg" class="profile-logo" />
+      <image :src="popd.circleAvatar" class="profile-logo" />
       <view class="profile-info">
         <text class="profile-name">{{popd.circleName}}</text>
        
@@ -32,53 +32,40 @@
 export default {
 	onShow() {
 		
-		uni.request({
-		  url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/1',
-		  method: 'GET',
-		  header: {
-		    'authentication': 'application'
-		  },
+		// uni.request({
+		//   url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/1',
+		//   method: 'GET',
+		//   header: {
+		//     'authentication': 'application'
+		//   },
 					  
-		  success: res => {
-							 if (res.statusCode === 200 ) {
-							             const data = res.data.data;
-							             console.log('Total:', data.total);
-										this.total=data.total;                             
-							             const records = data;
-										 this.popd=records;
-							     //         records.forEach(record => {
-											 // this.popd[0].username=record.circleName;
-											 // this.popd[0].name=record.circleName;
-											 // this.popd[0].join=record.circleType;
-											 // this.popd[0].likes='热度：'+record.circlePostCount;
-							     //         });
-							         } else {
-							         console.error('Error in response:', res);
-							         }
-		    console.log(res.data)
-		  },
-		  fail: err => {
-		    console.log(err)
-		  }
-		})
+		//   success: res => {
+		// 					 if (res.statusCode === 200 ) {
+		// 					             const data = res.data.data;
+		// 					             console.log('Total:', data.total);
+		// 								this.total=data.total;                             
+		// 					             const records = data;
+		// 								 this.popd=records;
+		// 					     //         records.forEach(record => {
+		// 									 // this.popd[0].username=record.circleName;
+		// 									 // this.popd[0].name=record.circleName;
+		// 									 // this.popd[0].join=record.circleType;
+		// 									 // this.popd[0].likes='热度：'+record.circlePostCount;
+		// 					     //         });
+		// 					         } else {
+		// 					         console.error('Error in response:', res);
+		// 					         }
+		//     console.log(res.data)
+		//   },
+		//   fail: err => {
+		//     console.log(err)
+		//   }
+		// })
 		
 	},
   data() {
     return {
-		popd :{
-		    id: 1,
-		    avatar: '/static/images/2.jpg',
-		    username: '峰潇潇Sorcererer',
-		    time: '2小时前',
-		    followed: false,
-		    category: '失物招领',
-		    text: '雅思口语全套出售了，欢迎咨询',
-		    location: '',
-		    views: 6465,
-		    shares: 9665,
-		    comments: 895,
-		    likes: 862
-		},
+		popd :this.$popg.sharedData ,
 		followed: false,
     
     };

@@ -12,14 +12,13 @@ import './uni.promisify.adaptor'
 import '@/static/css/global.css'
 
 Vue.config.productionTip = false
-let token='';
-let tokk=0;
-let usernameop='小明';
-let followsum=0;
-let fansname=0;
-let myautograph='';
-let seex='';
-let scchool='';
+
+Vue.prototype.$authentication = {  
+  sharedData: []  
+};
+Vue.prototype.$popg = {  
+  sharedData: null  
+};
 
 App.mpType = 'app'
 const app = new Vue({
