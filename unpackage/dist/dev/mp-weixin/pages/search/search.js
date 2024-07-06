@@ -164,6 +164,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _api = __webpack_require__(/*! @/api/api.js */ 233);
 //
 //
 //
@@ -207,7 +208,7 @@ var _default = {
       }
 
       uni.request({
-        url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/1?circleId=query',
+        url: "".concat(_api.BASE_URL, "/api/user/circle/1?circleId=query"),
         method: 'GET',
         success: function success(res) {
           if (res.statusCode === 200) {

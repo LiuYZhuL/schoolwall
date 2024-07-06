@@ -74,34 +74,6 @@
 			this.gotoBottom();
 		},
 		methods: {
-			formatDate(value) {
-				if (typeof(value) == 'undefined') {
-					return ''
-				} else {
-					let date = new Date(value)
-					let now = new Date()
-					let y = date.getFullYear()
-					let MM = date.getMonth() + 1
-					MM = MM < 10 ? ('0' + MM) : MM
-					let d = date.getDate()
-					d = d < 10 ? ('0' + d) : d
-					let h = date.getHours()
-					h = h < 10 ? ('0' + h) : h
-					let m = date.getMinutes()
-					m = m < 10 ? ('0' + m) : m
-					let s = date.getSeconds()
-					s = s < 10 ? ('0' + s) : s
-					if (now.getDate()-d==1 && now - date < 172800000) {
-						return '昨天' + h + ':' + m
-					} else if (now - date < 86400000) {
-						return h + ':' + m
-					} else if (now - date >= 86400000 && now - date < 31536000000) {
-						return MM + '-' + d + ' ' + h + ':' + m
-					} else if (now - date >= 31536000000) {
-						return y + '-' + MM + '-' + d + ' ' + h + ':' + m
-					}
-				}
-			},
 			chooseImage() {
 				
 				uni.chooseImage({

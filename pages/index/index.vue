@@ -13,6 +13,7 @@
 </template>
 
 <script>
+	import {BASE_URL} from '@/api/api.js'
 	export default {
 		data() {
 			return {
@@ -43,7 +44,7 @@
 		},
 		onShow() {
 			uni.request({
-				url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle?apifoxApiId=182959254',
+				url: `${BASE_URL}/api/user/circle?apifoxApiId=182959254`,
 				method: 'GET',
 				header: {
 					'content-type': 'application/json'

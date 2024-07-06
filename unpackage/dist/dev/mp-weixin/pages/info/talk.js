@@ -230,34 +230,6 @@ var _default = {
     this.gotoBottom();
   },
   methods: {
-    formatDate: function formatDate(value) {
-      if (typeof value == 'undefined') {
-        return '';
-      } else {
-        var date = new Date(value);
-        var now = new Date();
-        var y = date.getFullYear();
-        var MM = date.getMonth() + 1;
-        MM = MM < 10 ? '0' + MM : MM;
-        var d = date.getDate();
-        d = d < 10 ? '0' + d : d;
-        var h = date.getHours();
-        h = h < 10 ? '0' + h : h;
-        var m = date.getMinutes();
-        m = m < 10 ? '0' + m : m;
-        var s = date.getSeconds();
-        s = s < 10 ? '0' + s : s;
-        if (now.getDate() - d == 1 && now - date < 172800000) {
-          return '昨天' + h + ':' + m;
-        } else if (now - date < 86400000) {
-          return h + ':' + m;
-        } else if (now - date >= 86400000 && now - date < 31536000000) {
-          return MM + '-' + d + ' ' + h + ':' + m;
-        } else if (now - date >= 31536000000) {
-          return y + '-' + MM + '-' + d + ' ' + h + ':' + m;
-        }
-      }
-    },
     chooseImage: function chooseImage() {
       var _this = this;
       uni.chooseImage({

@@ -12221,6 +12221,25 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
+/***/ 233:
+/*!***************************************!*\
+  !*** D:/Github/schoolwall/api/api.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.BASE_URL = void 0;
+var BASE_URL = "http://127.0.0.1:4523/m1/4600643-4250220-default";
+exports.BASE_URL = BASE_URL;
+
+/***/ }),
+
 /***/ 24:
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!

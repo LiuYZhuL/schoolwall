@@ -40,10 +40,11 @@
 </template>
 
 <script>
+	import {BASE_URL} from "@/api/api.js"
 export default {
 	onShow() {
 		uni.request({
-		  url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post?apifoxApiId=183926713',
+		  url: `${BASE_URL}/api/user/post?apifoxApiId=183926713`,
 		  method: 'POST',
 		  header: {
 		    'authentication': 'application'

@@ -35,6 +35,7 @@
 </template>
 
 <script>
+	import { BASE_URL } from '@/api/api.js';
 	export default {
 	  data() {
 		  
@@ -46,7 +47,7 @@
 	  methods: {
 		  onShow() {
 		  	uni.request({
-		  		url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/admin/user/info/1',
+		  		url: `${BASE_URL}/api/admin/user/info/1`,
 		  		method: 'GET',
 		  		header: {
 		  			'content-type': 'application/json'

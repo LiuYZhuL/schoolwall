@@ -167,6 +167,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _api = __webpack_require__(/*! @/api/api.js */ 233);
 //
 //
 //
@@ -209,7 +210,7 @@ var _default = {
   onShow: function onShow() {
     var _this = this;
     uni.request({
-      url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle?apifoxApiId=182959254',
+      url: "".concat(_api.BASE_URL, "/api/user/circle?apifoxApiId=182959254"),
       method: 'GET',
       header: {
         'content-type': 'application/json'

@@ -22,6 +22,7 @@
 </template>  
   
 <script>  
+import { BASE_URL } from '@/api/api.js';
 export default {  
   data() {  
     return {  
@@ -40,7 +41,7 @@ export default {
         return; // 如果查询为空，则不执行请求  
       }  
       uni.request({  
-        url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/1?circleId=query',  
+        url: `${BASE_URL}/api/user/circle/1?circleId=query`,  
         method: 'GET',  
         success: (res) => {  
           if (res.statusCode === 200) {  

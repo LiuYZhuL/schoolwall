@@ -47,7 +47,7 @@
 <script>
 
 	import { mapState, mapMutations } from 'vuex';
-
+	import {BASE_URL} from "@/api/api.js"
 	export default {
 		data() {
 			return {
@@ -166,7 +166,7 @@
 				},
 				userLogin(providerId, code) {
 					uni.request({
-						url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/login', 
+						url: `${BASE_URL}/api/user/login`, 
 						method: 'POST',
 						header: {
 							'authentication': providerId,
@@ -195,7 +195,7 @@
 				},
 				     getToken() {
 				        uni.request({
-				          url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/login', 
+				          url: `${BASE_URL}/api/user/login`, 
 				          method: 'GET',
 				          header: {
 				            'token': '{{token}}',

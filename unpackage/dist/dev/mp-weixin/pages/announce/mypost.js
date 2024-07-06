@@ -144,6 +144,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 113));
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 115));
+var _api = __webpack_require__(/*! @/api/api.js */ 233);
 //
 //
 //
@@ -189,7 +190,7 @@ var _default = {
   onShow: function onShow() {
     var _this = this;
     uni.request({
-      url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post?apifoxApiId=183926713',
+      url: "".concat(_api.BASE_URL, "/api/user/post?apifoxApiId=183926713"),
       method: 'POST',
       header: {
         'authentication': 'application'

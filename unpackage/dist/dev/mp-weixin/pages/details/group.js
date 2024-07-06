@@ -120,6 +120,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _api = __webpack_require__(/*! @/api/api.js */ 233);
 //
 //
 //
@@ -193,7 +194,7 @@ var _default = {
     followUser: function followUser(post) {
       var _this = this;
       uni.request({
-        url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/join/1',
+        url: "".concat(_api.BASE_URL, "/api/user/circle/join/1"),
         // 你的API接口地址
         method: 'POST',
         header: {
@@ -210,7 +211,7 @@ var _default = {
     },
     unfollowUser: function unfollowUser(post) {
       uni.request({
-        url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/circle/exit/1',
+        url: "".concat(_api.BASE_URL, "/api/user/circle/exit/1"),
         method: 'DEL',
         header: {
           'authentication': '{{token1}}'

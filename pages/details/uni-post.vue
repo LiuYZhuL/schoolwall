@@ -94,10 +94,9 @@
 					</view>
 				</view>
 				<view class="chatFrame">
-					<textarea type="text" v-model="content" class="chatInput" placeholder="请输入内容"
-						@confirm="submit"></textarea>
-					<button class="btn" @click="chooseImage">图片</button>
-					<button class="btn" @click="submit">发送</button>
+					<textarea type="text" v-model="content" class="chatInput" placeholder="请输入内容" @confirm="submit"></textarea>
+					<uni-icons type="image" size="25" style="padding: 5rpx;" @click="chooseImage"></uni-icons>
+					<uni-icons type="chat" size='25' style="padding: 5rpx;" @click="submit"></uni-icons>
 				</view>
 			</view>
 
@@ -109,10 +108,11 @@
 </template>
 
 <script>
+	import  {BASE_URL}  from '@/api/api.js'
 	export default {
 		onShow() {
 			uni.request({
-				url: 'http://127.0.0.1:4523/m1/4600643-4250220-default/api/user/post', //用的查询自己帖子，后续得换
+				url: `${BASE_URL}/api/user/post`, //用的查询自己帖子，后续得换
 				method: 'GET',
 				header: {
 					'authentication': 'application'
