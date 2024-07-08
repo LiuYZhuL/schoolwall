@@ -17,23 +17,23 @@
 		</view>
 		<view class="categories">
 			<view class="category">
-				<view class="category-icon"></view>
+				<view class="category-icon-go" ></view>
 				<text class="category-text">校园购物</text>
 			</view>
 			<view class="category">
-				<view class="category-icon"></view>
+				<view class="category-icon-run"></view>
 				<text class="category-text">校园跑腿</text>
 			</view>
 			<view class="category">
-				<view class="category-icon"></view>
+				<view class="category-icon-lvyou"></view>
 				<text class="category-text">旅游</text>
 			</view>
 			<view class="category">
-				<view class="category-icon"></view>
+				<view class="category-icon-go"></view>
 				<text class="category-text">出行</text>
 			</view>
 			<view class="category">
-				<view class="category-icon"></view>
+				<view class="category-icon-eat"></view>
 				<text class="category-text">美食</text>
 			</view>
 			
@@ -232,8 +232,52 @@
 		color: #fff;
 	}
 
-	.category-icon {
-		background-image: url('/static/images/1.jpg');
+	.category-icon-go {
+		 background-image: url('/static/annImg/go.png'); 
+		width: 50px;
+		height: 50px;
+		background-color: #fff;
+		background-size: cover;
+		/* 裁剪图片以完全覆盖容器 */
+		border-radius: 10px;
+		margin-bottom: 5px;
+	}
+	
+	.category-icon-run {
+		 background-image: url('/static/annImg/run.png'); 
+		width: 50px;
+		height: 50px;
+		background-color: #fff;
+		background-size: cover;
+		/* 裁剪图片以完全覆盖容器 */
+		border-radius: 10px;
+		margin-bottom: 5px;
+	}
+	
+	.category-icon-jiaotong {
+		 background-image: url('/static/annImg/jiaotong.png'); 
+		width: 50px;
+		height: 50px;
+		background-color: #fff;
+		background-size: cover;
+		/* 裁剪图片以完全覆盖容器 */
+		border-radius: 10px;
+		margin-bottom: 5px;
+	}
+	
+	.category-icon-eat {
+		 background-image: url('/static/annImg/eat.png'); 
+		width: 50px;
+		height: 50px;
+		background-color: #fff;
+		background-size: cover;
+		/* 裁剪图片以完全覆盖容器 */
+		border-radius: 10px;
+		margin-bottom: 5px;
+	}
+	
+	.category-icon-lvyou {
+		 background-image: url('/static/annImg/lvyou.png'); 
 		width: 50px;
 		height: 50px;
 		background-color: #fff;

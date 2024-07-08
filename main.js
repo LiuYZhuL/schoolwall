@@ -13,7 +13,7 @@ import '@/static/css/global.css'
 
 Vue.config.productionTip = false
 
-Vue.prototype.$authentication = {  
+Vue.prototype.$userinfo = {  
   sharedData: []  
 };
 Vue.prototype.$popg = {  
