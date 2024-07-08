@@ -245,6 +245,7 @@ var _default = {
       }
     },
     login: function login(index) {
+      var _this2 = this;
       // let tokk = uni.tokk;
       // if (tokk != 1) {
       // 	uni.navigateTo({
@@ -255,8 +256,53 @@ var _default = {
       // 		url: '/pages/list/list'
       // 	})
 
-      // }
+      // }	
+
       this.$popg.sharedData = this.posts[index];
+      uni.request({
+        url: "".concat(_api.BASE_URL, "/api/user/group"),
+        method: 'GET',
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function success(res) {
+          var that = _this2;
+          if (res.statusCode === 200) {
+            var data = res.data;
+            var records = data.records;
+            _this2.$groupinfo.sharedData = records;
+            console.log(_this2.$groupinfo.sharedData);
+          } else {
+            console.error('Error in response:', res);
+          }
+          console.log(res.data);
+        },
+        fail: function fail(err) {
+          console.log(err);
+        }
+      });
+      uni.request({
+        url: "".concat(_api.BASE_URL, "/api/user/topic"),
+        method: 'GET',
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function success(res) {
+          var that = _this2;
+          if (res.statusCode === 200) {
+            var data = res.data.data;
+            var records = data.records;
+            _this2.$groupinfo.sharetalk = records;
+            console.log(_this2.$groupinfo.sharetalk);
+          } else {
+            console.error('Error in response:', res);
+          }
+          console.log(res.data);
+        },
+        fail: function fail(err) {
+          console.log(err);
+        }
+      });
       console.log(this.$popg.sharedData); // 输出：初始值
       uni.switchTab({
         url: '/pages/list/list'

@@ -244,9 +244,43 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   data: function data() {
     return {
+      tabs: this.$groupinfo.sharedData,
+      tags: this.$groupinfo.sharetalk,
+      // activeTag:'树洞',
+      //activeTab: '圈子动态',// 默认激活的选项卡
       posts: this.$popg.sharedData,
       total: '20',
       title: 'uni-fab',
@@ -275,8 +309,25 @@ var _default = {
       // 可以在这里添加数据绑定，如果有动态数据需求的话
     };
   },
-
+  onShow: function onShow() {
+    function setActiveTab() {
+      this.activeTab = this.$groupinfo.sharedData[0].groupName;
+    }
+    ;
+    function setActiveTag() {
+      this.activeTag = this.$groupinfo.sharetalk[0].topicName;
+    }
+    ;
+  },
   methods: {
+    setActiveTag: function setActiveTag(tag) {
+      this.activeTag = tag;
+      // 这里可以添加其他逻辑，比如根据选择的标签加载不同的内容  
+    },
+    setActiveTab: function setActiveTab(tab) {
+      this.activeTab = tab;
+      // 在这里可以添加其他逻辑，例如导航到不同的页面或加载不同的数据  
+    },
     gotoDp: function gotoDp() {
       uni.navigateTo({
         url: '/pages/details/uni-post'

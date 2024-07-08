@@ -16,6 +16,10 @@ Vue.config.productionTip = false
 Vue.prototype.$userinfo = {  
   sharedData: []  
 };
+Vue.prototype.$groupinfo = {  
+  sharedData: []  ,
+  sharetalk:[],
+};
 Vue.prototype.$popg = {  
   sharedData: null  
 };

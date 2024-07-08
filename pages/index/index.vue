@@ -92,13 +92,68 @@
 				// 		url: '/pages/list/list'
 				// 	})
 
-				// }
-				this.$popg.sharedData=this.posts[index];
-				console.log(this.$popg.sharedData); // 输出：初始值
-					uni.switchTab({
-						url: '/pages/list/list'
-					})
+				// }	
+					
+				this.$popg.sharedData = this.posts[index];
 				
+				uni.request({
+					url: `${BASE_URL}/api/user/group`,
+					method: 'GET',
+					header: {
+						'content-type': 'application/json'
+					},
+					success: res => {
+						var that = this;
+						if (res.statusCode === 200) {
+				
+							const data = res.data;
+							const records = data.records;
+							this.$groupinfo.sharedData = records;
+				
+							console.log(this.$groupinfo.sharedData);
+				
+				
+						} else {
+							console.error('Error in response:', res);
+						}
+						console.log(res.data)
+					},
+					fail: err => {
+						console.log(err)
+					}
+				})
+				
+				uni.request({
+					url: `${BASE_URL}/api/user/topic`,
+					method: 'GET',
+					header: {
+						'content-type': 'application/json'
+					},
+					success: res => {
+						var that = this;
+						if (res.statusCode === 200) {
+				
+							const data = res.data.data;
+							const records = data.records;
+							this.$groupinfo.sharetalk = records;
+				
+							console.log(this.$groupinfo.sharetalk);
+				
+				
+						} else {
+							console.error('Error in response:', res);
+						}
+						console.log(res.data)
+					},
+					fail: err => {
+						console.log(err)
+					}
+				})
+				
+				console.log(this.$popg.sharedData); // 输出：初始值
+				uni.switchTab({
+					url: '/pages/list/list'
+				})
 
 			},
 			search() {
